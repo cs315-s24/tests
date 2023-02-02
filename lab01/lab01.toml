@@ -1,3 +1,6 @@
+[project]
+timeout = 30
+
 [[tests]]
 name = "01"
 input = ["./$project", "3", "-o", "2"]
