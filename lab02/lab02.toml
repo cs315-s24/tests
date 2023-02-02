@@ -1,3 +1,6 @@
+[project]
+timeout = 30
+
 [[tests]]
 name = "add4-1"
 input = ["./add4", "1", "2", "3", "4"]
