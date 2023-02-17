@@ -1,3 +1,6 @@
+[project]
+timeout = 30
+
 [[tests]]
 name = "pack_bytes_1"
 input = ["./pack_bytes", "1", "2", "3", "4"]

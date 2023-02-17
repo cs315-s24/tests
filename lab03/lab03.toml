@@ -1,3 +1,6 @@
+[project]
+timeout = 30
+
 [[tests]]
 name = "fib_rec-1"
 input = ["./fib_rec", "1"]
