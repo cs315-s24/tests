@@ -1,3 +1,6 @@
+[project]
+timeout = 60
+
 [[tests]]
 name = "quad_1"
 input = ["./$project", "quadratic", "1", "2", "3", "4"]
