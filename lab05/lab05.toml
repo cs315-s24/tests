@@ -3,6 +3,7 @@ build = "none"
 strip_output = """
 Use default settings!
 """
+timeout = 15
 
 [[tests]]
 name = "max2"
