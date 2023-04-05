@@ -3,6 +3,7 @@ build = "none"
 strip_output = """
 Use default settings!
 """
+timeout = 30
 
 [[tests]]
 name = "fib-rec"
