@@ -3,6 +3,7 @@ build = "none"
 strip_output = """
 Use default settings!
 """
+timeout = 20
 
 [[tests]]
 name = "00-add-3nop"
