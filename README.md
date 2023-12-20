@@ -1,2 +1,2 @@
 # tests
-Autograder tests repo for CS 315 Fall 2022
+Autograder tests repo for CS 315 Spring 2024
