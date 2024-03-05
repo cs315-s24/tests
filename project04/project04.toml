@@ -22,6 +22,16 @@ Emu: 6
 rubric = 4
 
 [[tests]]
+name = "int_to_str"
+input = ["./$project", "int_to_str", "255", "-o", "16"]
+expected = """
+C: 0xff
+Asm: 0xff
+Emu: 0xff
+"""
+rubric = 5
+
+[[tests]]
 name = "is_pal"
 input = ["./$project", "is_pal", "941171149"]
 expected = """
@@ -40,16 +50,6 @@ Asm: 10
 Emu: 10
 """
 rubric = 4
-
-[[tests]]
-name = "merge_sort"
-input = ["./$project", "merge_sort", "6", "4", "1", "2", "5", "3"]
-expected = """
-C: 1 2 3 4 5 6
-Asm: 1 2 3 4 5 6
-Emu: 1 2 3 4 5 6
-"""
-rubric = 10
 
 [[tests]]
 name = "midpoint"
@@ -80,6 +80,16 @@ Asm: 6 5 4 3 2 1
 Emu: 6 5 4 3 2 1
 """
 rubric = 10
+
+[[tests]]
+name = "str_to_int"
+input = ["./$project", "str_to_int", "0b10000", "-o", "10"]
+expected = """
+C: 16
+Asm: 16
+Emu: 16
+"""
+rubric = 5
 
 [[tests]]
 name = "to_upper"
@@ -131,85 +141,85 @@ Conditional branches   = 177 (10.57%)
 rubric = 2
 
 [[tests]]
-name = "merge_sort_dm_32_1"
-input = ["./$project", "-dm", "32", "1", "merge_sort", "8", "1", "3", "7", "0", "20", "38", "9"]
+name = "str_to_int_dm_32_1"
+input = ["./$project", "-dm", "32", "1", "str_to_int", "0xFFFF"]
 expected = """
-C: 0 1 3 7 8 9 20 38
-Asm: 0 1 3 7 8 9 20 38
-Emu: 0 1 3 7 8 9 20 38
+C: 65535
+Asm: 65535
+Emu: 65535
 === Cache (I)
 Type          = direct mapped
 Size          = 32 slots
 Block size    = 1 words
 Ways          = 1
-References    = 440
-Hits          = 244 (55.45% hit ratio)
-Misses        = 196 (44.55% miss ratio)
-Misses (cold) = 20
-Misses (hot)  = 176
-% Used        = 62.50%
+References    = 91
+Hits          = 60 (65.93% hit ratio)
+Misses        = 31 (34.07% miss ratio)
+Misses (cold) = 29
+Misses (hot)  = 2
+% Used        = 90.62%
 """
 rubric = 2
 
 [[tests]]
-name = "merge_sort_dm_32_4"
-input = ["./$project", "-dm", "32", "4", "merge_sort", "8", "1", "3", "7", "0", "20", "38", "9"]
+name = "str_to_int_dm_32_4"
+input = ["./$project", "-dm", "32", "4", "str_to_int", "0xFFFF"]
 expected = """
-C: 0 1 3 7 8 9 20 38
-Asm: 0 1 3 7 8 9 20 38
-Emu: 0 1 3 7 8 9 20 38
+C: 65535
+Asm: 65535
+Emu: 65535
 === Cache (I)
 Type          = direct mapped
 Size          = 32 slots
 Block size    = 4 words
 Ways          = 1
-References    = 440
-Hits          = 384 (87.27% hit ratio)
-Misses        = 56 (12.73% miss ratio)
-Misses (cold) = 5
-Misses (hot)  = 51
-% Used        = 15.62%
+References    = 91
+Hits          = 82 (90.11% hit ratio)
+Misses        = 9 (9.89% miss ratio)
+Misses (cold) = 8
+Misses (hot)  = 1
+% Used        = 25.00%
 """
 rubric = 5
 
 [[tests]]
-name = "merge_sort_sa_32_1_4"
-input = ["./$project", "-sa", "32", "1", "4", "merge_sort", "8", "1", "3", "7", "0", "20", "38", "9"]
+name = "sort_sa_32_1_4"
+input = ["./$project", "-sa", "32", "1", "4", "sort", "8", "1", "3", "7", "0", "20", "28", "9"]
 expected = """
-C: 0 1 3 7 8 9 20 38
-Asm: 0 1 3 7 8 9 20 38
-Emu: 0 1 3 7 8 9 20 38
+C: 28 20 9 8 7 3 1 0
+Asm: 28 20 9 8 7 3 1 0
+Emu: 28 20 9 8 7 3 1 0
 === Cache (I)
 Type          = set associative
 Size          = 32 slots
 Block size    = 1 words
 Ways          = 4
-References    = 440
-Hits          = 345 (78.41% hit ratio)
-Misses        = 95 (21.59% miss ratio)
-Misses (cold) = 31
-Misses (hot)  = 64
-% Used        = 96.88%
+References    = 540
+Hits          = 258 (47.78% hit ratio)
+Misses        = 282 (52.22% miss ratio)
+Misses (cold) = 32
+Misses (hot)  = 250
+% Used        = 100.00%
 """
 rubric = 5
 
 [[tests]]
-name = "merge_sort_sa_32_4_4"
-input = ["./$project", "-sa", "32", "4", "4", "merge_sort", "8", "1", "3", "7", "0", "20", "38", "9"]
+name = "sort_sa_32_4_4"
+input = ["./$project", "-sa", "32", "4", "4", "sort", "8", "1", "3", "7", "0", "20", "28", "9"]
 expected = """
-C: 0 1 3 7 8 9 20 38
-Asm: 0 1 3 7 8 9 20 38
-Emu: 0 1 3 7 8 9 20 38
+C: 28 20 9 8 7 3 1 0
+Asm: 28 20 9 8 7 3 1 0
+Emu: 28 20 9 8 7 3 1 0
 === Cache (I)
 Type          = set associative
 Size          = 32 slots
 Block size    = 4 words
 Ways          = 4
-References    = 440
-Hits          = 415 (94.32% hit ratio)
-Misses        = 25 (5.68% miss ratio)
+References    = 540
+Hits          = 455 (84.26% hit ratio)
+Misses        = 85 (15.74% miss ratio)
 Misses (cold) = 8
-Misses (hot)  = 17
+Misses (hot)  = 77
 % Used        = 25.00%
 """
 rubric = 5
