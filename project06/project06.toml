@@ -190,9 +190,9 @@ expected = """
 rubric = 5
 
 [[tests]]
-name = "23-merge-sort"
-input = ["java", "-cp", "$digital", "CLI", "test", "$project.dig", "-tests", "$project_tests/23-merge-sort-test.dig"]
+name = "23-str-to-int"
+input = ["java", "-cp", "$digital", "CLI", "test", "$project.dig", "-tests", "$project_tests/23-str-to-int-test.dig"]
 expected = """
-23-merge-sort-test: passed
+23-str-to-int-test: passed
 """
 rubric = 5

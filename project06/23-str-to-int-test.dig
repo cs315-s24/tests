@@ -8,7 +8,7 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>23-merge-sort-test</string>
+          <string>23-str-to-int-test</string>
         </entry>
         <entry>
           <string>Testdata</string>
@@ -19,7 +19,7 @@
 while (!(DONE))
 0   1   C   23   x    x    x
 end while
-0   1   0   23   8589934596 25769803784 42949672972</dataString>
+0   1   0   23   65535 x x</dataString>
           </testData>
         </entry>
       </elementAttributes>
